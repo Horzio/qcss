@@ -20,7 +20,20 @@
 父级，任意父级，非body级别，设置overflow:hidden可恢复和其他浏览器一样的渲染。
 方法2：(perspective 属性定义 3D 元素距视图的距离，以像素计。该属性允许您改变 3D 元素查看 3D 元素的视图。
 当为元素定义 perspective 属性时，其子元素会获得透视效果，而不是元素本身。)既然是有transform变换产生的，那么调整translateZ为对应的尺寸就可以了
- -->
+ 当遭遇元素margin负值重叠的时候，如果没有static以外的position属性值的话，后面的元素是会覆盖前面的元素的;
+ ---》》》
+ transform限制position:fixed的跟随效果---transform会将position:fixed降级为position：absolute。
+ 这个特性表现，目前只在Chrome浏览器/FireFox浏览器下有，IE浏览器，包括IE11, fixed还是fixed的表现。
+ ----???
+ transform改变overflow对absolute元素的限制;
+ Chrome/Opera浏览器下，只有嵌套元素含有transform属性的时候，
+ absolute元素才会被overflow隐藏；但是在IE9+/FireFox浏览器下，
+ 无论是overflow容器还是嵌套子元素，
+ 只要有transform属性，就会hidden溢出的absolute元素
+ ---??
+ transform限制absolute的100%宽度大小;
+ 无论是IE9+，还是Chrome还是FireFox浏览器，所有绝对定位图片100%宽度，都是相对设置了transform的容器计算
+-->
 </body>
 
 </html>
